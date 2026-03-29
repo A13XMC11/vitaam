@@ -317,6 +317,126 @@
 
     .product-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; }
 
+    /* ── SECTORS ── */
+    .sectors {
+      padding: clamp(70px, 10vw, 130px) clamp(1rem, 4vw, 2rem);
+      background: var(--surface-lowest);
+    }
+
+    .sectors .container { max-width: 1200px; margin: 0 auto; }
+
+    .sectors .section-header {
+      text-align: center;
+      margin-bottom: clamp(3rem, 5vw, 4.5rem);
+    }
+
+    .sectors .section-header h2 {
+      font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      letter-spacing: -0.8px;
+    }
+
+    .sectors .section-header h2 span {
+      background: linear-gradient(135deg, var(--accent-teal), var(--cta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .sectors .section-header p {
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: clamp(2rem, 4vw, 3rem);
+    }
+
+    .sector-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      background: var(--surface-low);
+      transition: all 400ms var(--ease-out);
+      box-shadow: 0 8px 24px rgba(61, 76, 90, 0.1);
+    }
+
+    .sector-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 24px 48px rgba(61, 76, 90, 0.15);
+    }
+
+    .sector-image {
+      width: 100%;
+      height: clamp(280px, 50vw, 400px);
+      object-fit: cover;
+      display: block;
+      transition: transform 600ms var(--ease-out);
+    }
+
+    .sector-card:hover .sector-image {
+      transform: scale(1.08);
+    }
+
+    .sector-content {
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .sector-badge {
+      display: inline-block;
+      background: rgba(13, 124, 143, 0.1);
+      color: var(--accent-teal);
+      padding: 6px 16px;
+      border-radius: 24px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      letter-spacing: 0.6px;
+    }
+
+    .sector-card:hover .sector-badge {
+      background: var(--cta);
+      color: #221B00;
+    }
+
+    .sector-card h3 {
+      font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.5px;
+    }
+
+    .sector-card p {
+      font-size: clamp(0.9rem, 1.3vw, 1rem);
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    .sector-highlight {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .sector-highlight span {
+      font-size: 0.85rem;
+      color: var(--accent-teal);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
     /* ── STATS ── */
     .stats {
       padding: clamp(60px, 8vw, 100px) clamp(1rem, 4vw, 2rem);
@@ -474,11 +594,25 @@
       .hero-cta .btn { text-align: center; width: 100%; max-width: 320px; }
 
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+
+      .sectors-grid { grid-template-columns: 1fr; }
+
+      .sector-card { margin-bottom: 2rem; }
+
+      .sector-image { height: 280px; }
     }
 
     @media (max-width: 480px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
       .features-grid { grid-template-columns: 1fr; }
+
+      .sectors .section-header h2 { font-size: 1.6rem; }
+
+      .sector-image { height: 240px; }
+
+      .sector-content { padding: 1.5rem; }
+
+      .sector-highlight span { font-size: 0.8rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -578,6 +712,47 @@
       </div>
       <div style="text-align:center; margin-top: clamp(1.5rem, 3vw, 2.5rem);">
         <a href="pages/productos.html" class="btn btn-primary">Ver Catálogo Completo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS SECTION -->
+  <section class="sectors">
+    <div class="container">
+      <div class="section-header">
+        <h2>Especializados en Sectores <span>Clave</span></h2>
+        <p>Soluciones probadas para las especies más productivas del sector pecuario ecuatoriano</p>
+      </div>
+      <div class="sectors-grid">
+        <!-- AVÍCOLA -->
+        <div class="sector-card reveal">
+          <img src="img/VitaamAves.PNG" alt="Granero avícola profesional - VITAAM" class="sector-image">
+          <div class="sector-content">
+            <span class="sector-badge">🐔 Sector Avícola</span>
+            <h3>Aves & Ponedoras</h3>
+            <p>Soluciones especializadas para broilers, ponedoras y aves de traspatio. Mejoramos conversión alimenticia, producción de huevos y resistencia a enfermedades.</p>
+            <div class="sector-highlight">
+              <span>✓ Broilers</span>
+              <span>✓ Ponedoras</span>
+              <span>✓ Reproductores</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PORCINO -->
+        <div class="sector-card reveal">
+          <img src="img/VitaamCerdos.PNG" alt="Granjero con cerdos - VITAAM" class="sector-image">
+          <div class="sector-content">
+            <span class="sector-badge">🐷 Sector Porcino</span>
+            <h3>Cerdos & Reproductores</h3>
+            <p>Fórmulas balanceadas para crecimiento, engorde y reproducción. Optimizamos ganancia de peso, eficiencia alimenticia y calidad genética en crianza.</p>
+            <div class="sector-highlight">
+              <span>✓ Lechones</span>
+              <span>✓ Engorde</span>
+              <span>✓ Reproductores</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
