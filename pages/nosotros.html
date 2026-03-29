@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros - VITAAM | Nutrición Animal Ecuatoriana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #3D4C5A;
+      --primary-dark: #2A3440;
+      --secondary: #6B8290;
+      --accent-teal: #0D7C8F;
+      --cta: #FFD700;
+      --cta-dark: #FFC700;
+      --background: #F8F9FB;
+      --surface-container-low: #F2F4F6;
+      --surface-container-lowest: #FFFFFF;
+      --text-dark: #191C1E;
+      --text-muted: #4D4732;
+      --border-light: #D0C6AB;
+      --success: #16A34A;
+      --white: #FFFFFF;
+
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--background);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(248, 249, 251, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(208, 198, 171, 0.15);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(61, 76, 90, 0.08);
+    }
+
+    nav .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 3.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      cursor: pointer;
+      transition: color 200ms var(--ease-out);
+      letter-spacing: -0.3px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-teal), var(--cta));
+      transition: width 300ms var(--ease-out);
+    }
+
+    nav a:hover {
+      color: var(--accent-teal);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      background: linear-gradient(135deg, var(--background) 0%, var(--surface-container-low) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: url('../img/banner.png') no-repeat right bottom;
+      background-size: cover;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      animation: slideInUp 800ms var(--ease-out) both;
+      letter-spacing: -1.2px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent-teal), var(--cta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      animation: slideInUp 800ms var(--ease-out) 100ms both;
+      max-width: 700px;
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CONTENT SECTION */
+    .content-section {
+      padding: 120px 2rem;
+      background: var(--surface-container-lowest);
+    }
+
+    .content-section .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .content-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      letter-spacing: -1px;
+    }
+
+    .content-section h2 span {
+      background: linear-gradient(135deg, var(--accent-teal), var(--cta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .content-section h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .content-section p {
+      color: var(--text-muted);
+      line-height: 1.9;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* VALUES GRID */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .value-card {
+      padding: 2.5rem;
+      background: var(--surface-container-low);
+      border-radius: 12px;
+      transition: all 300ms var(--ease-out);
+      text-align: center;
+    }
+
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 40px 80px rgba(61, 76, 90, 0.12);
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .value-card h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      letter-spacing: -0.3px;
+    }
+
+    .value-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 4rem 2rem 2rem;
+    }
+
+    footer .footer-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    footer .logo-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    footer .logo-img-footer {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(1.2);
+    }
+
+    footer h4 {
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      color: var(--cta);
+      font-size: 1rem;
+      letter-spacing: -0.3px;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 200ms var(--ease-out);
+      display: block;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    footer a:hover {
+      color: var(--cta);
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 215, 0, 0.15);
+      padding-top: 2rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: all 200ms var(--ease-out);
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      letter-spacing: -0.3px;
+      margin-top: 1.5rem;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #705d00, var(--cta));
+      color: #221B00;
+      box-shadow: 0 4px 16px rgba(255, 215, 0, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(255, 215, 0, 0.35);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.8rem 1rem;
+      }
+
+      .logo-img {
+        height: 32px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .content-section h2 {
+        font-size: 2rem;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container">
+      <div class="logo-container">
+        <a href="../index.html"><img src="../img/logo vitaam.png" alt="VITAAM Logo" class="logo-img"></a>
+      </div>
+      <ul>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <h1>Sobre <span>VITAAM</span></h1>
+      <p>14 años de innovación y compromiso con la nutrición animal ecuatoriana. Conoce nuestra historia, misión y los valores que nos guían.</p>
+    </div>
+  </section>
+
+  <!-- HISTORIA SECTION -->
+  <section class="content-section">
+    <div class="container">
+      <h2>Nuestra <span>Historia</span></h2>
+      <p>El 4 de agosto del 2010 se crea la empresa VITAAM "VITAMINAS AMINOACIDOS Y MINERALES," con capital ecuatoriano y motivados en la ayuda constante hacia el productor nacional, en el campo avícola, porcícola y ganadero.</p>
+      <p>Durante estos años, hemos desarrollado una profunda comprensión de las necesidades nutricionales del sector pecuario ecuatoriano, permitiéndonos crear soluciones especializadas que mejoran la salud, productividad y rentabilidad de nuestros clientes.</p>
+    </div>
+  </section>
+
+  <!-- MISION Y VISION -->
+  <section class="content-section" id="mision">
+    <div class="container">
+      <h2>Misión y <span>Visión</span></h2>
+
+      <h3>Misión</h3>
+      <p>Contribuir a la nutrición y salud animal del sector pecuario ecuatoriano, a través de productos reconocidos y asesoría técnica altamente calificada, en estricto cumplimiento a la normativa vigente y un alto compromiso con los grupos de interés.</p>
+
+      <h3>Visión</h3>
+      <p>Ser la empresa referente en nutrición y salud animal, aportando conocimiento e innovación al sector pecuario ecuatoriano.</p>
+    </div>
+  </section>
+
+  <!-- VALUES SECTION -->
+  <section class="content-section">
+    <div class="container">
+      <h2>Nuestros <span>Valores</span></h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">👥</div>
+          <h4>Orientación al Cliente</h4>
+          <p>Tu éxito es nuestro éxito. Trabajamos para entender y satisfacer tus necesidades específicas.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">⚖️</div>
+          <h4>Ética</h4>
+          <p>Actuamos con transparencia e integridad en todas nuestras relaciones comerciales.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <h4>Liderazgo</h4>
+          <p>Nos posicionamos como referentes en innovación y excelencia en nutrición animal.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">💡</div>
+          <h4>Innovación</h4>
+          <p>Investigación constante para ofrecerte las soluciones más avanzadas del mercado.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h4>Trabajo en Equipo</h4>
+          <p>Colaboración interna y externa para lograr objetivos comunes con excelencia.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">✓</div>
+          <h4>Calidad</h4>
+          <p>Cumplimiento riguroso de estándares internacionales en todos nuestros procesos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="content-section">
+    <div class="container" style="text-align: center;">
+      <h2>¿Quieres conocer más de <span>VITAAM</span>?</h2>
+      <p style="max-width: 700px; margin: 1.5rem auto;">Explora nuestros productos especializados y descubre cómo podemos mejorar la nutrición de tus animales.</p>
+      <a href="productos.html" class="btn btn-primary">Ver Productos</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="logo-section">
+        <div>
+          <img src="../img/logo vitaam.png" alt="VITAAM Logo" class="logo-img-footer">
+          <p style="margin-top: 1rem; opacity: 0.8;">Nutrición animal de calidad para el sector pecuario ecuatoriano</p>
+          <p style="margin-top: 1rem;"><strong>Ubicación:</strong> Calle 3 y Calle F, Parque Industrial AMBATO</p>
+        </div>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <a href="productos.html#aditivos">Aditivos</a>
+        <a href="productos.html#premezclas">Premezclas Vitamínicas</a>
+        <a href="productos.html#nutricionales">Nutricionales</a>
+        <a href="servicios.html">Servicios</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="tel:+593324342202">📞 (03) 243-4202</a>
+        <a href="tel:+593993955330">📱 099 395 5330</a>
+        <a href="mailto:secretaria@vitaam.ec">📧 secretaria@vitaam.ec</a>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <a href="nosotros.html">Sobre Nosotros</a>
+        <a href="nosotros.html#mision">Misión y Visión</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="#">Términos y Condiciones</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 VITAAM. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
